@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sonoff eWeLink QR Code Generator
 
-## Getting Started
+A simple, responsive web application for generating pairing QR codes for Sonoff IoT devices. This tool helps users who have lost their physical QR codes to quickly generate new ones for device pairing with the eWeLink app.
 
-First, run the development server:
+## 🎯 Purpose
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Sonoff devices require pairing with the eWeLink mobile app to connect to your network. The standard pairing process uses QR codes that come with the device. However, these paper QR codes are easily lost or damaged. This tool provides a convenient way to regenerate those QR codes using just the device ID.
+
+## 📖 How to Use
+
+1. **Enter Pairing Mode**: Press and hold your Sonoff device's button for about 5 seconds until it enters pairing mode
+2. **Find Device ID**: On your phone or computer, search for WiFi networks starting with `ITEAD-`. The characters after `ITEAD-` are your device ID
+3. **Generate QR Code**: Enter the device ID into the input field on this page and click "Generate QR Code"
+4. **Scan with eWeLink**: Open the eWeLink app and scan the generated QR code to complete pairing
+
+## 🔗 QR Code Format
+
+The generated QR codes follow the Sonoff/eWeLink pairing format:
+
+```
+https://api.coolkit.cn/add-ap-device?brand=ewelink&ssid=ITEAD-{DEVICE_ID}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Where `{DEVICE_ID}` is the unique identifier found in your device's WiFi SSID.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚠️ Disclaimer
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This is an **unofficial** tool created for convenience purposes only. It comes with **no warranty or guarantees** of any kind. All trademarks including Sonoff and eWeLink are the property of their respective owners.
 
-## Learn More
+Use this tool at your own risk. The authors are not responsible for any issues that may arise from using this tool.
 
-To learn more about Next.js, take a look at the following resources:
+## 💡 Why This Tool?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sonoff devices are popular IoT switches and sensors, but the QR code pairing method, while convenient, has a major flaw: the paper QR codes are easily lost. Since the QR code format is straightforward and predictable, this tool provides a simple solution to regenerate them without needing to contact support or purchase replacement codes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Generated with ❤️ and AI
